@@ -31,7 +31,7 @@ coordenadas = [
     {"cidade":"ROSEIRA", "lat":-22.8985, "lon":-45.3058},
     {"cidade":"SANTA BRANCA", "lat":-23.3975, "lon":-45.8857},
     {"cidade":"SANTO ANTÔNIO DO PINHAL", "lat":-22.8254, "lon":-45.6633},
-    {"cidade":"SÃO BENTO DOSAPUCAÍ", "lat":-22.6883, "lon":-45.7363},
+    {"cidade":"SÃO BENTO DO SAPUCAÍ", "lat":-22.6883, "lon":-45.7363},
     {"cidade":"SÃO JOSÉ DO BARREIRO", "lat":-22.6452, "lon":-44.5769},
     {"cidade":"SÃO JOSÉ DOS CAMPOS", "lat":-23.1791, "lon":-45.8872},
     {"cidade":"SÃO LUIZ DO PARAITINGA", "lat":-23.2255, "lon":-45.3161},
