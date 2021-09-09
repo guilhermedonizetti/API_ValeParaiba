@@ -3,19 +3,122 @@
     <head>
         <meta charset="utf-8">
         <title>API Vale do Paraíba</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </head>
 
     <body>
+
+        <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand">API</a>
+            
+            <a href="https://github.com/guilhermedonizetti/API_ValeParaiba">
+                <button class="btn btn-outline-success my-2 my-sm-0">Repositório no GitHub</button>
+            </a>
+        </nav>
+
         <br>
         <center>
             <h1><b>API Vale do Paraíba</b></h1>
         </center>
 
-        <p>Para consultar todas as cidades: <a href="https://api-valeparaiba.herokuapp.com/valedoparaiba">https://api-valeparaiba.herokuapp.com/valedoparaiba</a></p>
-        <p>Para consultar uma cidade específica, informe a cidade ao final: <a href="https://api-valeparaiba.herokuapp.com/valedoparaiba/coordenadas/Queluz">https://api-valeparaiba.herokuapp.com/valedoparaiba/coordenadas/nome da cidade</a></p>
-    
-        <hr>
+        <div class="container">
 
-        <p>Repositório: <a href="https://github.com/guilhermedonizetti/API_ValeParaiba">API_ValeParaiba</a></p>
+            <center>            
+    <!--Um-->  <button type="button" class="btn btn-outline-success" id="BotaoUm"><b>Buscar por cidade</b></button>
+    <!--Dois--><button type="button" class="btn btn-outline-primary" id="BotaoDois"><b>Buscar todas as cidades</b></button>
+            </center>
+
+            <div class="container" id="content" style="text-align: justify;">
+               
+                <!-- conteudo sobre busca individual das cidades -->
+                <div id="botaoum" style="display: none;">
+                    <br>
+                    <center><b>Buscar por cidade</b></center><br>
+                    <p>Para consultar uma cidade específica, informe a cidade ao final: <a href="https://api-valeparaiba.herokuapp.com/valedoparaiba/coordenadas/nome da cidade">https://api-valeparaiba.herokuapp.com/valedoparaiba/coordenadas/nome da cidade</a></p>
+                    
+                    Exemplo usando o município <b>Queluz</b>, retorna um Json:<br>
+                    <div class="card">
+                      <div class="card-body">
+                        <code>
+                            lat: -22.5375<br>
+                            lon: -44.7746
+                        </code>
+                      </div>
+                    </div>
+                    <br>
+                    <p>Segue um exemplo de código em Python para realizar essa requisição:</p>
+                    <div class="card">
+                        <div class="card-body">
+                            <code>
+                                from requests import get<br>
+                                from json import loads<br>
+                                <br>
+                                resposta = get("https://api-valeparaiba.herokuapp.com/valedoparaiba/coordenadas/Queluz/")<br>
+                                conteudo = loads(resposta.content)<br>
+                                <br>
+                                print(conteudo)
+                            </code>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- conteudo sobre busca por todas as cidades -->
+                <div id="botaodois" style="display: none;">
+                    <br>
+                    <center><b>Buscar todas as cidades</b></center><br>
+                    <p>Para consultar todas as cidades: <a href="https://api-valeparaiba.herokuapp.com/valedoparaiba">https://api-valeparaiba.herokuapp.com/valedoparaiba</a></p>
+
+                    Ao consultar todas as cidades, retorna uma lista em que cada índice possui as chaves cidade, lat e lon, exemplo:<br>
+                    <div class="card">
+                      <div class="card-body">
+                        <code>
+                            cidade: "CRUZEIRO"<br>
+                            lat: -22.5765<br>
+                            lon: -44.9634
+                        </code>
+                      </div>
+                    </div>
+
+                    <br>
+                    <p>Segue um exemplo de código em Python para realizar essa requisição:</p>
+                    <div class="card">
+                        <div class="card-body">
+                            <code>
+                                from requests import get<br>
+                                from json import loads<br>
+                                <br>
+                                resposta = get("https://api-valeparaiba.herokuapp.com/valedoparaiba/")<br>
+                                conteudo = loads(resposta.content)<br>
+                                <br>
+                                print(conteudo)
+                            </code>
+                        </div>
+                    </div>
+                </div>
+
+            <!--Funcoes JS para responder aos cliques dos botoes de opcoes-->
+            <script type="text/javascript">
+
+                $("#BotaoUm").click(function () {
+                    $("#botaodois").hide(1000);
+                    $("#botaotres").hide(1000);
+                    $("#botaoum").show(1000);
+                });
+
+                $("#BotaoDois").click(function () {
+                    $("#botaoum").hide(1000);
+                    $("#botaotres").hide(1000);
+                    $("#botaodois").show(1000);
+                });
+            </script>
+
+        </div>
+
+        <br>
     </body>
 </html>
