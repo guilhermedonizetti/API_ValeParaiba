@@ -7,7 +7,7 @@ coordenadas = [
     {"cidade":"BANANAL", "lat":-22.6807, "lon":-44.3237},
     {"cidade":"CAÇAPAVA", "lat":-23.102, "lon":-45.7069},
     {"cidade":"CACHOEIRA PAULISTA", "lat":-22.6737, "lon":-44.9973},
-    {"cidade":"CAMPOS DO JORDÃO", "lat":22.7386, "lon":-45.5921},
+    {"cidade":"CAMPOS DO JORDÃO", "lat":22.7296, "lon":-45.5833},
     {"cidade":"CANAS", "lat":-22.7049, "lon":-45.0545},
     {"cidade":"CARAGUATATUBA", "lat":-23.6225, "lon":-45.4119},
     {"cidade":"CRUZEIRO", "lat":-22.5765, "lon":-44.9634},
