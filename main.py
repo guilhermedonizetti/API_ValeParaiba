@@ -1,4 +1,3 @@
-from os import error
 from flask import Flask
 from flask.templating import render_template
 from flask_restful import Resource, Api
@@ -14,6 +13,7 @@ class Coordenadas(Resource):
             resul = buscar_cidade(cidade.upper())
             if resul:
                 response = {
+                    "cidade":cidade.upper(),
                     "lat":resul['lat'],
                     "lon":resul['lon']
                 }
